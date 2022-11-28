@@ -1,7 +1,7 @@
 let interestElement = document.getElementById("interest");
 let monthlyPaymentElement = document.getElementById('monthly-payment');
 
-let arr=[{name:'cc',age:'23',contact:'02345775',address:'asdasds',gender:'male',mail:'ffffff',id:'22222'}]
+let arr=[]
 let sixMonths = 6;
 let twelveMonths = 12;
 
@@ -33,6 +33,14 @@ function calculatePaidMonthly() {
     let monthlyPaymentAmount = (amount / tenor) * (interestRate / 100)  +   (amount / tenor);
 
     monthlyPaymentElement.value = monthlyPaymentAmount;
+    
+
+
+    return { 
+        monthlyPaymentAmount, 
+        interestRate,
+        amount
+    }
 
 
 }
@@ -44,11 +52,19 @@ function apply() {
     let amountElement = document.getElementById('amount');
     let amount = amountElement.value;
     if (!amount || amount <= 0) {
-
         alert("Vui lòng nhập số tiền muốn vay")
     }
-    display(arr)
-
+    const item = sessionStorage.getItem('info'); 
+    if(item) { 
+        let paidMonthly = calculatePaidMonthly();
+        let info = JSON.parse(item); 
+        info.monthlyPaymentAmount = paidMonthly.monthlyPaymentAmount; 
+        info.interest= paidMonthly.interestRate;
+        info.amount = paidMonthly.amount;
+        arr.push(info);
+        display(arr)
+    }
+  
 }
 function register(){
     let name=document.getElementById("fname").value
@@ -58,7 +74,8 @@ function register(){
     let contact=document.getElementById("contact").value
     let mail=document.getElementById("mail").value
     let id=document.getElementById("id").value
-    arr.push({
+
+    sessionStorage.setItem("info",JSON.stringify({
         name:name,
         age:age,
         address:address,
@@ -66,9 +83,8 @@ function register(){
         contact:contact,
         mail:mail,
         id:id,
-    },)
-    display(arr)
-
+    })); 
+    
 }
 function display(arr){
     let result = "";
@@ -76,21 +92,27 @@ function display(arr){
     result += '<tr>'
     result += '<th>' + "Full Name" + '</th>'
     result += '<th>' + "Age" + '</th>'
-    result += '<th>' + "Mobile Phone" + '</th>'
+    result += '<th>' + "Contact" + '</th>'
+    result += '<th>' + "Gender" + '</th>'
+    result += '<th>' + "Email" + '</th>'
     result += '<th>' + "Amount of money" + '</th>'
     result += '<th>' + "Monthly payment" + '</th>'
     result += '</tr>'
-    result+='<tr>'
+    
     for(let i=0;i<arr.length;i++){
+        result+='<tr>'
         result+='<td>'+arr[i].name+'</td>'
         result+='<td>'+arr[i].age+'</td>'
-        result+='<td>'+arr[i].address +'</td>'
-        result+='<td>'+arr[i].gender+'</td>'
         result+='<td>'+arr[i].contact+'</td>'
+        result+='<td>'+arr[i].gender+'</td>'
         result+='<td>'+arr[i].mail+'</td>'
-        result+='<td>'+arr[i].id+'</td>'
+        result+='<td>'+arr[i].amount+'</td>'
+        result+='<td>'+arr[i].monthlyPaymentAmount+'</td>'
+        result+='<td> <input type="button" value="Edit"> </input></td>'
+        result+='<td> <input type="button" value="Delete"> </input></td>'
+        result+='</tr>'
     }
-    result+='</tr>'
+   
     result+='</table>'
     document.getElementById("display").innerHTML=result;
 }
