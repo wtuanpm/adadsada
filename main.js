@@ -61,6 +61,8 @@ function apply() {
         info.monthlyPaymentAmount = paidMonthly.monthlyPaymentAmount; 
         info.interest= paidMonthly.interestRate;
         info.amount = paidMonthly.amount;
+        info.id= arr.length;
+        console.log("arr",arr)
         arr.push(info);
         display(arr)
     }
@@ -86,6 +88,10 @@ function register(){
     })); 
     
 }
+
+function onDelete(e) {
+    e.parentElement.parentElement.remove();
+ }
 function display(arr){
     let result = "";
     result += '<table style="border: 1px solid">'
@@ -109,7 +115,7 @@ function display(arr){
         result+='<td>'+arr[i].amount+'</td>'
         result+='<td>'+arr[i].monthlyPaymentAmount+'</td>'
         result+='<td> <input type="button" value="Edit"> </input></td>'
-        result+='<td> <input type="button" value="Delete"> </input></td>'
+        result+='<td> <input type="button" onclick="onDelete(this)"  value="Delete"> </input></td>'
         result+='</tr>'
     }
    
