@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dangky</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+</head>
+<body>
+
+<h3>Register Form</h3>
+
+<div class="formRegister()">
+    <form action="pic.html">
+        <label for="fname">Full Name</label>
+        <input required="true" type="text" id="fname" name="fullname" placeholder="Your name..">
+
+        <label for="age">Your Age</label>
+        <input type="text" id="age" name="age" placeholder="Your age..">
+
+        <label for="address">Address</label>
+        <input type="text" id="address" name="address" placeholder="Your address..">
+
+        <label for="gender">Gender</label>
+        <select id="gender" name="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label for="contact">Phone Number</label>
+        <input required="true" type="text" id="contact" name="contact" placeholder="Your phone number..">
+
+        <label for="mail">Your Email</label>
+        <input required="true" type="text" id="mail" name="mail" placeholder="Your Email..">
+
+        <label for="id">Your ID</label>
+        <input type="text" id="id" name="id" placeholder="Your ID..">
+
+        <label for="account">Your Account</label>
+        <input required="true" type="text" id="account" name="account" placeholder="Your account..">
+
+        <label for="password">Your PassWord</label>
+        <input required="true" type="text" id="password" name="pasword" placeholder="Your PassWord..">
+
+        <label for="retypePass">Retype Your PassWord</label>
+        <input required="true" type="text" id="retypePass" name="retypepass" placeholder="Retype Your PassWord...">
+        <button onclick="register()" style="padding:7px 40px 7px">Register</button>
+    </form>
+</div>
+</body>
+<script type="text/javascript" src="main.js"></script>
+</html>

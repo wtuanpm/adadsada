@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table,
+        td {
+            text-align: center;
+            vertical-align: center;
+            height: 40px;
+        }
+
+        table {
+            border: 1px solid black;
+            background: orange linear-gradient(to bottom, orange, white);
+        }
+
+        .picture1 {
+            position: relative;
+            width: 100%;
+            border: 1px solid black;
+        }
+
+        .picture1 img {
+            width: 100%;
+            height: 680px;
+        }
+    </style>
+    <div class="picture1">
+        <img src="https://scontent.fhan14-1.fna.fbcdn.net/v/t1.15752-9/315016536_1780882908953709_4082644693127161901_n.png?_nc_cat=110&ccb=1-7&_nc_sid=ae9488&_nc_ohc=zLhBWvopETMAX_iXtQp&_nc_ht=scontent.fhan14-1.fna&oh=03_AdRhzcFIVPD7j9j-qZvaeDYZGxYF1hAw77aDNByFKqugVg&oe=63A98492"
+             width="100%" height="500px" alt="">
+
+        <form action="main.html" style="position: relative; top: -600px; left: 520px;">
+            <table>
+                <tr>
+                    <td>
+                        <label for="account">Account:</label>
+                    </td>
+                    <td>
+                        <input type="text" id="account" name="pass">
+                    </td>
+
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pass">Password:</label>
+                    </td>
+                    <td>
+                        <input type="password" id="pass" name="pass">
+                    </td>
+
+                </tr>
+                <tr>
+
+
+                    <td colspan="2">
+                        <input type="button" onclick="home()" value="Login"></input>
+                        <input type="button" onclick="dangKy()" value="Register">
+                    </td>
+                </tr>
+
+
+            </table>
+
+        </form>
+    </div>
+    <script src="main.js"></script>
+</head>
+<script>
+    function dangKy() {
+        location.href = "register.html"
+    }
+
+    function home() {
+        const accountElement = document.getElementById("account");
+        const passwordElement = document.getElementById("pass");
+        if (accountElement.value !== "admin" || passwordElement.value !== "1234") {
+            alert("Username or password is incorrect")
+        } else {
+            console.log("here");
+            location.href = "main.html";
+        }
+    }
+</script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

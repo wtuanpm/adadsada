@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>dangky</title>
+</head>
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    input[type=text], select, textarea {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 6px;
+        margin-bottom: 16px;
+        resize: vertical;
+    }
+
+    input[type=submit] {
+        background-color: #04AA6D;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type=submit]:hover {
+        background-color: #45a049;
+    }
+
+</style>
+</head>
+<body style="background: cadetblue linear-gradient(to bottom,cadetblue,cornflowerblue)">
+
+<h3>Register for a loan</h3>
+
+<div class="loanRegister">
+    <form>
+        <label for="amount">Amount Of Money</label>
+        <input type="text" id="amount" name="amount" placeholder="Amount of money..">
+
+        <label for="tenor">Tenor</label>
+        <select id="tenor" name="tenor">
+            <option value="6">6 Months</option>
+            <option value="12">12 Months</option>
+            <option value="24">24 Months</option>
+        </select>
+
+        <label for="interest">Monthly Interes</label>
+        <input disabled="true" type="text" id="interest" name="interes" placeholder="Your Monthly Interes..">
+
+        <label for="monthly-payment">Amount To Be Paid Monthly</label>
+        <input disabled="true" type="text" id="monthly-payment" name="interes"
+               placeholder="Amount to be paid monthly..">
+
+        <input onclick="apply()" type="button" style="padding:7px 40px 7px" value="Apply"/>
+        <input onclick="calculatePaidMonthly()" type="button" style="padding:7px 40px 7px" value="Check"/>
+        <input onclick="advice()" type="button" style="padding:7px 40px 7px" value="Advice"/>
+    </form>
+</div>
+<div id="display"></div>
+</body>
+<script type="text/javascript" src="main.js"></script>
+</table>
+</html>
